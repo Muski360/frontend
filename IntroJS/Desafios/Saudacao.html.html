@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My program</title>
+  </head>
+  <body>
+    <input type="text" id="nome" placeholder="Digite seu nome..." />
+    <button onclick="funcao()">Clique aqui!</button>
+  </body>
+  <script>
+    function verificacao(nome) {
+      if (/\d/.test(nome) || nome === "") {
+        alert("Nome inválido!");
+        exit();
+      }
+    }
+    function caps(nome) {
+      nome = nome.charAt(0).toUpperCase() + nome.slice(1);
+      return;
+    }
+    function funcao() {
+      const nome = document.getElementById("nome").value;
+      verificacao(nome);
+      caps(nome);
+      var hora = new Date().getHours();
+
+      if (hora >= 6 && hora <= 12) {
+        var saudacao = "Bom dia, ";
+        alert(`${saudacao}${nome}!`);
+      } else if (12 > hora < 18) {
+        var saudacao = "Boa tarde, ";
+        alert(`${saudacao}${nome}!`);
+      } else {
+        var saudacao = "Boa noite, ";
+        alert(`${saudacao}${nome}!`);
+      }
+    }
+  </script>
+</html>
