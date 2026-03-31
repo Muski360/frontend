@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Convidados</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Bem vindo ao melhor site para gerenciar seus convidados!</h1>
+    <h2>Comece aqui:</h2>
+
+    <button id="addBtn">Adicionar Lista</button>
+
+    <div id="modal" class="modal">
+      <div class="modal-addList">
+        <span id="fecharModal" class="fechar">&times;</span>
+        <h2>Adicionar Lista</h2>
+        
+        <p class="text formText">Digite o nome da lista:</p>
+        <input type="text" placeholder="Digite o nome da lista..." id="ListName">
+
+        <p class="text formText">Escolha a cor para sua lista!</p>
+        <div class="colorOption">
+            <button class="colorBtn blueBtn" id="bluebtn">🔵</button>
+            <button class="colorBtn YellowBtn" id="yellowbtn">🟡</button>
+        </div>
+
+        <button id="cancelList">Cancelar</button>
+        <button id="createList">Criar lista</button>
+      </div>
+    </div>
+
+    <h4>Suas listas:</h4>
+    <div id="listas">
+
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>

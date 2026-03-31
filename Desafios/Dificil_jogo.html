@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo - Pedra, Papel e Tesoura</title>
+</head>
+
+<style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 20px;
+      background:
+        radial-gradient(circle at top left, rgba(0, 200, 255, 0.15), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(255, 166, 0, 0.15), transparent 30%),
+        linear-gradient(135deg, #0b1226, #111c44);
+      color: white;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 10px;
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin-bottom: 35px;
+      color: #cbd5e1;
+    }
+
+    .container-opcoes {
+      display: flex;
+      gap: 25px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    button {
+      width: 190px;
+      height: 190px;
+      border: 2px solid rgba(255, 255, 255, 0.12);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+    }
+
+    button:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 18px 35px rgba(6, 143, 207, 0.35);
+    }
+
+    button:active {
+      transform: scale(0.99);
+    }
+
+    button img {
+      width: 120px;
+      height: 120px;
+    }
+
+    h4 {
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 500;
+      line-height: 1.8;
+      padding: 20px 25px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      color: #f8fafc;
+    }
+
+      h3 {
+        font-size: 1.1rem;
+      }
+
+      button {
+        width: 150px;
+        height: 150px;
+      }
+
+      h4 {
+        font-size: 1rem;
+        padding: 16px;
+      }
+      
+</style>
+
+<body>
+    <h1>Bem vindo ao jogo PEDRA, PAPEL E TESOURA!</h1>
+    <h3>Escolha sua opção:</h3>
+<div class="container-opcoes">
+    <button id="pedra"><img src="PEDRA.png" alt="pedra"></button>
+    <button id="papel"><img src="PAPEL.PNG" alt="papel"></button>
+    <button id="tesoura"><img src="TESOURA.PNG" alt="tesoura"></button>
+</div>
+
+<h4>Resultado: </h4>
+
+</body>
+
+<script>
+// Seleciona botões em uma lista e o elemento de texto onde o resultado será mostrado
+const botoes = document.querySelectorAll('button');
+const displayResultado = document.querySelector('h4');
+
+// Definição das opções do jogo.
+const opcoes = ['pedra', 'papel', 'tesoura'];
+
+// Fluxo principal do jogo, escuta o clique e ativa as funções com o parametro da escolha do usuário.
+botoes.forEach(botao => {
+    botao.addEventListener('click', () => {
+        const escolhaUsuario = botao.id;
+        const escolhaComputador = gerarEscolhaComputador();
+
+        const emojiUser = retornarEmoji(escolhaUsuario);
+        const emojiPC = retornarEmoji(escolhaComputador);
+
+        const statusWin = determinarVencedor(escolhaUsuario, escolhaComputador);
+
+        exibirResultado(escolhaUsuario, escolhaComputador, statusWin, emojiUser, emojiPC);
+    });
+});
+
+// conversão de emojis
+function retornarEmoji(escolha) {
+    if (escolha === 'pedra') return "🪨";
+    if (escolha === 'papel') return "📄";
+    if (escolha === 'tesoura') return "✂️";
+}
+
+// Escolhe aleatoriamente pedra/papel/tesoura para o computador
+function gerarEscolhaComputador() {
+    const indiceAleatorio = Math.floor(Math.random() * 3);
+    return opcoes[indiceAleatorio];
+}
+
+// Determina vencedor segundo as regras do jogo
+function determinarVencedor(usuario, computador) {
+    if (usuario === computador) return "Empate! 🤝";
+
+    if (  
+        (usuario === 'pedra' && computador === 'tesoura') ||
+        (usuario === 'papel' && computador === 'pedra') ||
+        (usuario === 'tesoura' && computador === 'papel')
+    ) {
+        return "Você Venceu! 🎉";
+    } else {
+        return "Você Perdeu! 😢";
+    }
+}
+
+// Função que exibe os resultados
+function exibirResultado(user, pc, res, emojuser, emojpc) {
+    displayResultado.innerHTML = `
+        Sua escolha: ${user.toUpperCase()} ${emojuser} | 
+        Computador: ${pc.toUpperCase()} ${emojpc} |
+        ${res}
+    `;
+}
+</script>
+</html>

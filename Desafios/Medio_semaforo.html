@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Semáforo</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    body{
+        text-align:center;
+        font-family:Arial;
+    }
+
+    /* Estrutura do semáforo */
+    #semaforo{
+        width:100px;
+        background:black;
+        padding:20px;
+        margin:auto;
+        border-radius:10px;
+    }
+
+    /* Estilo das luzes */
+    .luz{
+        width:60px;
+        height:60px;
+        background:#333;
+        border-radius:50%;
+        margin:10px auto;
+    }
+
+    /* Estilo dos botões */
+    button{
+        padding:10px;
+        margin:5px;
+        font-size:16px;
+    }
+</style>
+</head>
+<body>
+<h1>Semáforo</h1>
+<div id="semaforo">
+    <div id="vermelho" class="luz"></div>
+    <div id="amarelo" class="luz"></div>
+    <div id="verde" class="luz"></div>
+</div>
+    
+<br>
+    
+<!-- Botões que controlam o semáforo -->  
+<button onclick="vermelho()">Vermelho</button>
+<button onclick="amarelo()">Amarelo</button>
+<button onclick="verde()">Verde</button>
+<button onclick="automatico()">Automático</button>
+
+</body>
+<script>
+    /* Função que apaga todas as luzes */
+    function apagar(){
+
+        document.getElementById("vermelho").style.background = "#333"
+        document.getElementById("amarelo").style.background = "#333"
+        document.getElementById("verde").style.background = "#333"
+    }
+
+    /* Função que acende a luz vermelha */
+    function vermelho(){
+
+        apagar()
+
+        document.getElementById("vermelho").style.background = "red"
+        // acende a luz vermelha
+
+    }
+
+    /* Função que acende a luz amarela */
+    function amarelo(){
+
+        apagar()
+
+        document.getElementById("amarelo").style.background = "yellow"
+        // acende a luz amarela
+    }
+
+    /* Função que acende a luz verde */
+    function verde(){
+
+        apagar()
+
+        document.getElementById("verde").style.background = "green"
+        // acende a luz verde
+
+    }
+
+    /* Função que ativa o modo automático do semáforo */
+    function automatico(){
+        vermelho()
+        // inicia com o vermelh
+
+        setTimeout(function(){
+            verde()
+        },2000)
+        // após 2 segundos acende o verde
+
+        setTimeout(function(){
+            amarelo()
+        },4000)
+        // após 4 segundos acende o amarelo
+
+        setTimeout(function(){
+            vermelho()
+        },6000)
+        // após 6 segundos volta para o vermelho
+
+    }
+
+</script>
+</html>
