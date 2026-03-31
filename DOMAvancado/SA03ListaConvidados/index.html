@@ -4,37 +4,87 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lista de Convidados</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Bem vindo ao melhor site para gerenciar seus convidados!</h1>
+    <h1>Bem-vindo ao melhor site para gerenciar seus convidados!</h1>
     <h2>Comece aqui:</h2>
 
-    <button id="addBtn">Adicionar Lista</button>
+    <button id="addBtn" type="button">Adicionar Lista</button>
+    <button id="toggleDarkMode" type="button">Modo Escuro</button>
 
     <div id="modal" class="modal">
       <div class="modal-addList">
         <span id="fecharModal" class="fechar">&times;</span>
         <h2>Adicionar Lista</h2>
-        
+
         <p class="text formText">Digite o nome da lista:</p>
-        <input type="text" placeholder="Digite o nome da lista..." id="ListName">
+        <input
+          type="text"
+          placeholder="Digite o nome da lista..."
+          id="listNameInput"
+        />
 
         <p class="text formText">Escolha a cor para sua lista!</p>
         <div class="colorOption">
-            <button class="colorBtn blueBtn" id="bluebtn">🔵</button>
-            <button class="colorBtn YellowBtn" id="yellowbtn">🟡</button>
+          <button
+            type="button"
+            class="colorBtn blueBtn"
+            id="bluebtn"
+            data-color="#4f8cff"
+            data-label="Azul"
+          >
+            🔵
+          </button>
+          <button
+            type="button"
+            class="colorBtn yellowBtn"
+            id="yellowbtn"
+            data-color="#f7c948"
+            data-label="Amarelo"
+          >
+            🟡
+          </button>
         </div>
 
-        <button id="cancelList">Cancelar</button>
-        <button id="createList">Criar lista</button>
+        <p id="listError" aria-live="polite"></p>
+
+        <button type="button" id="cancelList">Cancelar</button>
+        <button type="button" id="createList">Criar lista</button>
       </div>
     </div>
 
     <h4>Suas listas:</h4>
-    <div id="listas">
+    <div id="listas"></div>
 
-    </div>
+    <section id="painelLista" hidden>
+      <h3 id="listaSelecionadaTitulo">Selecione uma lista para adicionar pessoas</h3>
+
+      <form id="guestForm">
+        <p id="mensagemErro" aria-live="polite"></p>
+
+        <label for="guestNome">Nome completo</label>
+        <input id="guestNome" type="text" placeholder="Nome completo" />
+
+        <label for="guestDocumento">Documento</label>
+        <input id="guestDocumento" type="text" placeholder="Documento" />
+
+        <label for="guestEmail">E-mail</label>
+        <input id="guestEmail" type="email" placeholder="E-mail" />
+
+        <label for="guestTelefone">Telefone</label>
+        <input id="guestTelefone" type="tel" placeholder="Telefone" />
+
+        <label for="guestEmpresa">Empresa</label>
+        <input id="guestEmpresa" type="text" placeholder="Empresa" />
+
+        <button type="submit" id="addGuestBtn">Adicionar pessoa</button>
+      </form>
+
+      <h4>Pessoas nesta lista:</h4>
+      <div id="convidados"></div>
+    </section>
+
+    <script src="script.js"></script>
   </body>
-  <script src="script.js"></script>
 </html>

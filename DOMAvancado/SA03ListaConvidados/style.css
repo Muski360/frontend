@@ -1,22 +1,169 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-color: aliceblue;
+    margin: 0;
+    padding: 24px 16px 40px;
+    color: #1f2d3d;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    margin-top: 0;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+h2,
+h4 {
+    color: #2c4d75;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    padding: 10px 14px;
+    margin: 8px 6px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: dodgerblue;
+    color: white;
+    transition: 0.15s ease-in-out;
+}
+
+button:hover {
+    background-color: blue;
+}
+
+input {
+    width: min(100%, 420px);
+    padding: 10px 12px;
+    margin: 8px 0 14px;
+    border: 1px solid #bfd2e6;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+#listas,
+#convidados,
+#painelLista,
+.modal-addList {
+    width: min(900px, 92%);
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.18);
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+#listas,
+#convidados,
+#painelLista {
+    margin-top: 18px;
+}
+
+#listas,
+#convidados {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    min-height: 40px;
+}
+
+#painelLista {
+    margin-top: 24px;
+}
+
+#guestForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    margin-top: 18px;
+}
+
+label {
+    font-weight: bold;
+    color: #2c4d75;
+}
+
+.card-lista {
+    min-width: 190px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    font-weight: bold;
+}
+
+.card-lista:hover {
+    transform: translateY(-2px);
+}
+
+.card-convidado {
+    width: min(100%, 260px);
+    text-align: left;
+    background-color: #f7fbff;
+    border: 1px solid #d5e5f5;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.card-convidado strong {
+    display: block;
+    margin-bottom: 10px;
+    color: #174a7a;
+    font-size: 1.05rem;
+}
+
+.card-convidado p {
+    margin-bottom: 8px;
+}
+
+.card-convidado button {
+    width: 100%;
+    margin: 10px 0 0;
+    background-color: #dc3545;
+}
+
+.card-convidado button:hover {
+    background-color: #b42331;
+}
+
+#mensagemErro,
+#listError {
+    min-height: 20px;
+    margin: 0 0 10px;
+    color: #c62828;
+    font-weight: bold;
+}
+
 .modal {
     display: none;
-    /* escondido por padrão */
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    /* fundo escuro */
     justify-content: center;
     align-items: center;
+    padding: 16px;
+    box-sizing: border-box;
 }
 
 .modal-addList {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;
+    width: min(420px, 100%);
     position: relative;
 }
 
@@ -26,4 +173,65 @@
     right: 15px;
     font-size: 24px;
     cursor: pointer;
+    color: #44617d;
+}
+
+.colorOption {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.colorBtn {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    background-color: #eef5ff;
+    color: #1f2d3d;
+    border: 2px solid #d0e2f2;
+}
+
+.colorBtn:hover {
+    background-color: #dcecff;
+}
+
+body.dark-mode {
+    background-color: #15202b;
+    color: #ecf3fb;
+}
+
+body.dark-mode h2,
+body.dark-mode h4,
+body.dark-mode label,
+body.dark-mode .card-convidado strong,
+body.dark-mode .fechar {
+    color: #9fd0ff;
+}
+
+body.dark-mode #listas,
+body.dark-mode #convidados,
+body.dark-mode #painelLista,
+body.dark-mode .modal-addList {
+    background-color: #1f2c39;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-mode input {
+    background-color: #243646;
+    color: #f4f8fc;
+    border-color: #39536d;
+}
+
+body.dark-mode .card-convidado {
+    background-color: #243646;
+    border-color: #39536d;
+}
+
+body.dark-mode .colorBtn {
+    background-color: #243646;
+    border-color: #39536d;
+    color: #f4f8fc;
 }
