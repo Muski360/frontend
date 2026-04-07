@@ -34,23 +34,39 @@ console.log(
 );
 
 class Produto {
-    // atributos
-    nome;
-    preco;
-    marca;
-    disponivel;
+  // atributos
+  nome;
+  preco;
+  marca;
+  disponivel;
 
-    //métodos
-    //construtor
-    constructor(nome, preco, marca, disponibilidade){
-        this.nome = nome;
-        this.preco = preco;
-        this.marca = marca;
-        this.disponivel = disponibilidade;
+  //métodos
+  //construtor
+  constructor(nome, preco, marca, disponibilidade) {
+    this.nome = nome;
+    this.preco = preco;
+    this.marca = marca;
+    this.disponivel = disponibilidade;
+  }
+  // Método para aplicar desconto
+  desconto() {
+    return this.preco * 0.1;
+  }
 
-    }
-    // Método para aplicar desconto
-    desconto(){
-        return this.preco * 0.1
-    }
+  toString() {
+    return `Produto: ${this.nome},
+    Preço: ${this.preco},
+    Marca: ${produto1.marca}, 
+    Disponível: ${produto1.disponivel ? "Sim" : "Não"}, 
+    Desconto: ${produto1.disponivel ? produto1.desconto() : ""}`;
+  }
 }
+
+
+
+
+let p1 = new Produto("Microfone", 600, "Elgin", true);
+let p2 = new Produto("Headset", 150, "Dragon", true);
+
+console.log(p1.toString());
+
