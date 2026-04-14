@@ -27,7 +27,7 @@ export class TarefaModel {
     const tarefa = this.tarefas.find((tarefa) => tarefa.id === id);
     if (tarefa) {
       //se tarefa for encontrada
-      tarefa.completed = !this.tarefas.completed; //inverte o valor da booleana
+      tarefa.completed = !tarefa.completed; //inverte o valor da booleana
     }
   }
 

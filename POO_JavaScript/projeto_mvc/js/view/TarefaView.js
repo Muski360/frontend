@@ -4,7 +4,7 @@ export class TarefaView {
   constructor() {
     this.tarefaInput = document.getElementById("tarefaInput"); //entrada da nova tarefa
     this.addTarefaBtn = document.getElementById("addTarefaBtn");
-    this.listaTarefas = document.getElementById("ListaTarefa");
+    this.listaTarefas = document.getElementById("listaTarefa");
     this.mensagem = document.getElementById("mensagem");
   }
   getTarefaInputValue() {
@@ -50,7 +50,7 @@ export class TarefaView {
 
       // criar o botão para remover
       const removerBtn = document.createElement("button");
-      removerBtn.textContext = "Remover";
+      removerBtn.textContent = "Remover";
       removerBtn.addEventListener("click", () => remover(tarefa.id));
 
       //adicionando os BTN a lista de tarefas para cada tarefa
