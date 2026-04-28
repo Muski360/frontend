@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quitanda - Projeto MVC</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <h1>Sistema de Gestao de Quitanda</h1>
+        <p>Cadastro de produtos, controle de estoque e registro de vendas.</p>
+    </header>
+
+    <main class="container">
+        <section class="secao">
+            <h2>Cadastrar Produto</h2>
+
+            <form id="formProduto" class="formulario">
+                <div class="campo">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" placeholder="Ex: Banana" required>
+                </div>
+
+                <div class="campo">
+                    <label for="categoria">Categoria</label>
+                    <input type="text" id="categoria" name="categoria" placeholder="Ex: Fruta" required>
+                </div>
+
+                <div class="campo">
+                    <label for="preco">Preco</label>
+                    <input type="number" id="preco" name="preco" min="0" step="0.01" placeholder="0.00" required>
+                </div>
+
+                <div class="campo">
+                    <label for="quantidade">Quantidade</label>
+                    <input type="number" id="quantidade" name="quantidade" min="0" step="1" placeholder="0" required>
+                </div>
+
+                <button type="submit">Adicionar Produto</button>
+            </form>
+        </section>
+
+        <section class="secao">
+            <h2>Registrar Venda</h2>
+
+            <form id="formVenda" class="formulario">
+                <div class="campo">
+                    <label for="produtoVenda">Produto</label>
+                    <input type="text" id="produtoVenda" name="produtoVenda" placeholder="Nome do produto">
+                </div>
+
+                <div class="campo">
+                    <label for="quantidadeVenda">Quantidade</label>
+                    <input type="number" id="quantidadeVenda" name="quantidadeVenda" min="1" step="1" placeholder="1">
+                </div>
+
+                <button type="submit">Vender Produto</button>
+            </form>
+        </section>
+
+        <section class="secao">
+            <h2>Atualizar Produto</h2>
+
+            <form id="formAtualizar" class="formulario">
+                <div class="campo">
+                    <label for="atualizaNome">Produto</label>
+                    <input type="text" id="atualizaNome" name="atualizaNome" placeholder="Nome do produto" required>
+                </div>
+
+                <div class="campo">
+                    <label for="atualizaCategoria">Nova Categoria</label>
+                    <input type="text" id="atualizaCategoria" name="atualizaCategoria" placeholder="Opcional">
+                </div>
+
+                <div class="campo">
+                    <label for="atualizaPreco">Novo Preco</label>
+                    <input type="number" id="atualizaPreco" name="atualizaPreco" min="0" step="0.01" placeholder="Opcional">
+                </div>
+
+                <div class="campo">
+                    <label for="atualizaQuantidade">Nova Quantidade</label>
+                    <input type="number" id="atualizaQuantidade" name="atualizaQuantidade" min="0" step="1" placeholder="Opcional">
+                </div>
+
+                <button type="submit">Atualizar Produto</button>
+            </form>
+        </section>
+
+        <section class="secao secao-grande">
+            <h2>Estoque</h2>
+            <ul id="estoque" class="lista">
+                <li>Nenhum produto cadastrado.</li>
+            </ul>
+        </section>
+
+        <section class="secao secao-grande">
+            <h2>Movimentacoes</h2>
+            <ul id="movimentacoes" class="lista">
+                <li>Nenhuma movimentacao registrada.</li>
+            </ul>
+        </section>
+    </main>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
