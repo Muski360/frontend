@@ -5,7 +5,7 @@
 **Padrão Internacional:** ISO/IEC/IEEE 29148:2018  
 **Versão:** 1.0.0  
 **Data:** 2026-04-14  
-**Autor:** KaioMartinezJorge  
+**Autor:** Murilo Dovigo Bastos
 
 ---
 

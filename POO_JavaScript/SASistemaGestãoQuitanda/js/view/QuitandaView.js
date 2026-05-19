@@ -1,13 +1,17 @@
+// criação da classe QuitandaView
 export default class QuitandaView {
+  // Construtor com DOM
   constructor() {
     this.formProduto = document.getElementById("formProduto");
     this.formVenda = document.getElementById("formVenda");
-    // Corrigido: guarda a referencia do formulario de atualizacao.
+    // Corrigido: guarda a referência do formulário de atualização.
     this.formAtualizar = document.getElementById("formAtualizar");
     this.listaEstoque = document.getElementById("estoque");
+    this.listaPorcentagens = document.getElementById("porcentagens");
     this.listaMovimentacoes = document.getElementById("movimentacoes");
   }
 
+  //Função com callback para adicionar e definr o produto. com date.now() para definir horário também.
   bindAddProduto(handler) {
     this.formProduto.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -24,6 +28,7 @@ export default class QuitandaView {
     });
   }
 
+  //Função para definir a venda do produto, que apenas tira sua quantidade.
   bindVenda(handler) {
     this.formVenda.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -35,8 +40,9 @@ export default class QuitandaView {
     });
   }
 
+  //Função que atualiza o produto, que faz mudar os valores dos campos
   bindAtualizarProduto(handler) {
-    // Corrigido: conecta o formulario de atualizar ao Controller.
+    // Corrigido: conecta o formulário de atualizar ao Controller.
     this.formAtualizar.addEventListener("submit", (e) => {
       e.preventDefault();
 
@@ -49,7 +55,7 @@ export default class QuitandaView {
       const dados = {};
 
       if (categoria.trim() !== "") dados.categoria = categoria;
-      // Corrigido: permite atualizar preco para 0, por isso compara com string vazia.
+      // Corrigido: permite atualizar preço para 0, por isso compara com string vazia.
       if (preco !== "") dados.preco = preco;
       // Corrigido: permite atualizar quantidade para 0, por isso compara com string vazia.
       if (quantidade !== "") dados.quantidade = quantidade;
@@ -67,7 +73,7 @@ export default class QuitandaView {
   }
 
   limparFormularioAtualizar() {
-    // Corrigido: limpa o formulario de atualizacao depois de salvar.
+    // Corrigido: limpa o formulário de atualização depois de salvar.
     this.formAtualizar.reset();
   }
 
@@ -91,17 +97,51 @@ export default class QuitandaView {
     });
   }
 
+  renderPorcentagens(categorias) {
+    this.listaPorcentagens.innerHTML = "";
+
+    if (categorias.length === 0) {
+      this.listaPorcentagens.innerHTML =
+        "<li>Nenhuma porcentagem para mostrar.</li>";
+      return;
+    }
+
+    categorias.forEach((categoria) => {
+      const produtos = categoria.produtos
+        .map(
+          (produto) => `
+            <li>
+              ${produto.nome} - ${produto.porcentagem.toFixed(2)}% da categoria
+              (${produto.quantidade} unidade(s))
+            </li>
+          `,
+        )
+        .join("");
+
+      this.listaPorcentagens.innerHTML += `
+        <li>
+          <strong>${categoria.nome}</strong> -
+          ${categoria.porcentagem.toFixed(2)}% do estoque
+          (${categoria.quantidade} unidade(s))
+          <ul class="sublista">
+            ${produtos}
+          </ul>
+        </li>
+      `;
+    });
+  }
+
   renderMovimentacoes(movimentacoes) {
     this.listaMovimentacoes.innerHTML = "";
 
     if (movimentacoes.length === 0) {
       this.listaMovimentacoes.innerHTML =
-        "<li>Nenhuma movimentacao registrada.</li>";
+        "<li>Nenhuma movimentação registrada.</li>";
       return;
     }
 
     movimentacoes.forEach((movimentacao) => {
-      // Corrigido: atualizacao de preco/categoria nao precisa mostrar "null unidade(s)".
+      // Corrigido: atualização de preço/categoria não precisa mostrar "null unidade(s)".
       const quantidade =
         movimentacao.quantidade === null
           ? "dados alterados"

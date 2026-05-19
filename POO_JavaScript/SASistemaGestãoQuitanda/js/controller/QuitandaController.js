@@ -1,4 +1,4 @@
-// Corrigido: QuitandaModel nao possui export default, entao o import precisa usar chaves.
+// Corrigido: QuitandaModel não possui export default, então o import precisa usar chaves.
 import { QuitandaModel } from "../model/QuitandaModel.js";
 import QuitandaView from "../view/QuitandaView.js";
 
@@ -13,7 +13,7 @@ export default class QuitandaController {
   init() {
     this.view.bindAddProduto(this.handleAddProduto.bind(this));
     this.view.bindVenda(this.handleVenda.bind(this));
-    // Corrigido: o formulario de atualizar existia, mas nao estava conectado ao Controller.
+    // Corrigido: o formulário de atualizar existia, mas não estava conectado ao Controller.
     this.view.bindAtualizarProduto(this.handleAtualizarProduto.bind(this));
     this.atualizarTela();
   }
@@ -40,6 +40,7 @@ export default class QuitandaController {
 
   atualizarTela() {
     this.view.renderEstoque(this.model.listarProdutos());
+    this.view.renderPorcentagens(this.model.listarPorcentagens());
     this.view.renderMovimentacoes(this.model.listarMovimentacoes());
   }
 
