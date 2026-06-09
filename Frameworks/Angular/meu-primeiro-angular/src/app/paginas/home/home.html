@@ -1,0 +1,27 @@
+<h1>Olá, {{nome}}!</h1>
+<h3>Interpolação</h3>
+<br>
+
+<h3>Property Binding</h3>
+<img [src]="imgUrl" alt="Darlan Souza" width="500px">
+<br>
+<button class="btn btn-primary" [disabled]="botaoStatus">Salvar</button>
+
+<article>
+  <h3>Classe e Style Binding Dinâmico</h3>
+
+  <p>Selecione uma categoria de alerta:</p>
+
+  <select [(ngModel)]="classeAlerta" class="form-select" title="teste">
+    <option value="alert-success">Sucesso</option>
+    <option value="alert-info">Info</option>
+    <option value="alert-warning">Aviso</option>
+    <option value="alert-danger">Erro</option>
+  </select>
+
+  <br>
+
+  <div class="alert {{classeAlerta}}">
+    Texto colorido dinamicamente via Interpolação de classe
+  </div>
+</article>

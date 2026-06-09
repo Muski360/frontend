@@ -1,0 +1,57 @@
+h2 {
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 560px;
+}
+
+label {
+  font-weight: 600;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+textarea {
+  border: 1px solid #c7c7c7;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.campo-lista {
+  display: flex;
+  gap: 8px;
+}
+
+.campo-lista input {
+  flex: 1;
+}
+
+.botao-adicionar {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  min-width: 44px;
+}
+
+button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.footer {
+  height: 40px;
+}

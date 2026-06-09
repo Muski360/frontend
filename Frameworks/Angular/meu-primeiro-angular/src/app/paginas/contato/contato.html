@@ -1,0 +1,39 @@
+<form>
+  <label>Digite seu nome:</label>
+  <input type="text"
+         class="form-control mb-2"
+         (keyup.enter)="salvarNome(nomeInput.value)"
+         placeholder="Digite seu nome"
+         #nomeInput>
+  <label>Digite seu email:</label>
+  <input type="email"
+         class="form-control mb-2"
+         (keyup.enter)="salvarEmail(emailInput.value)"
+         placeholder="Digite seu email"
+         #emailInput>
+  <label>Digite sua mensagem:</label>
+  <input type="text"
+         class="form-control mb-2"
+         (keyup.enter)="salvarMensagem(mensagemInput.value)"
+         placeholder="Digite sua mensagem"
+         #mensagemInput>
+
+          <button
+        type="button"
+        class="btn btn-primary"
+        (click)="
+          salvarNome(nomeInput.value);
+          salvarEmail(emailInput.value);
+          salvarMensagem(mensagemInput.value);
+          mostrarDados()
+        "Enviar!>
+
+@if (mostrar) {
+<div class="caixa-dados">
+  <h2>Dados enviados</h2>
+
+  <p><strong>Nome:</strong> {{ nome }}</p>
+  <p><strong>Email:</strong> {{ email }}</p>
+  <p><strong>Mensagem:</strong> {{ mensagem }}</p>
+</div>
+}

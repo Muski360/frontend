@@ -1,0 +1,82 @@
+{
+  "vagas": [
+    {
+      "id": "1",
+      "nome": "Desenvolver FrontEnd Jr",
+      "foto": "foto1.jpg",
+      "descricao": "Trabalhar com HTML, CSS e JS",
+      "salario": 5000
+    },
+    {
+      "id": "2",
+      "nome": "Desenvolver BackEnd Pleno",
+      "foto": "foto2.jpg",
+      "descricao": "Trabalhar com Desenvolvimento Web",
+      "salario": 9000
+    },
+    {
+      "id": "3",
+      "nome": "Desenvolver Fullstack Senior",
+      "foto": "foto3.jpg",
+      "descricao": "Trabalhar com Desenvolvimento Web",
+      "salario": 18000
+    },
+    {
+      "nome": "Desing Web",
+      "foto": "foto4.jpg",
+      "descricao": "Trabalhar Design de Páginas Web",
+      "salario": 4000,
+      "id": "pDR1GHGUJu8"
+    }
+  ],
+  "curriculos": [
+    {
+      "id": 1,
+      "usuarioId": 3,
+      "nomeCompleto": "Lorenzo Pradal Malosso",
+      "formacoes": [
+        "Técnico em Desenvolvimento de Sistemas - SENAI",
+        "Ensino Médio Completo",
+        "Curso de Angular e TypeScript"
+      ],
+      "experiencias": [
+        "Desenvolvimento de páginas web com HTML, CSS e JavaScript",
+        "Participação em projetos escolares utilizando Angular",
+        "Criação de sistemas simples com consumo de API"
+      ],
+      "habilidades": [
+        "Angular",
+        "TypeScript",
+        "HTML",
+        "CSS"
+      ],
+      "linkedin": "https://www.linkedin.com/in/lorenzo-pradal-malosso-35b6b133a/"
+    },
+    {
+      "id": 2,
+      "usuarioId": 4,
+      "nomeCompleto": "Ana Beatriz Ferreira",
+      "formacoes": [
+        "Técnico em Informática - SENAI",
+        "Ensino Médio Completo",
+        "Curso de Desenvolvimento Front-End"
+      ],
+      "experiencias": [
+        "Criação de interfaces responsivas usando HTML, CSS e JavaScript",
+        "Desenvolvimento de componentes em Angular para projetos escolares",
+        "Organização de páginas web com foco em usabilidade"
+      ],
+      "habilidades": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Angular",
+        "Git"
+      ],
+      "linkedin": "https://www.linkedin.com/in/ana-beatriz-ferreira/"
+    }
+  ],
+
+
+  "$schema": "./node_modules/json-server/schema.json"
+}
