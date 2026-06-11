@@ -1,57 +1,40 @@
 h2 {
-  margin-bottom: 20px;
+  text-align: center;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 560px;
-}
-
-label {
-  font-weight: 600;
-}
-
-input,
-textarea,
-button {
-  font: inherit;
-}
-
-input,
-textarea {
-  border: 1px solid #c7c7c7;
-  border-radius: 6px;
-  padding: 10px;
-}
-
-textarea {
-  min-height: 100px;
-  resize: vertical;
+  max-width: 760px;
 }
 
 .campo-lista {
-  display: flex;
+  align-items: center;
+  display: grid;
   gap: 8px;
-}
-
-.campo-lista input {
-  flex: 1;
+  grid-template-columns: 1fr 46px;
 }
 
 .botao-adicionar {
-  cursor: pointer;
-  font-size: 20px;
-  font-weight: 700;
-  min-width: 44px;
+  background: var(--secondary);
+  font-size: 1.35rem;
+  font-weight: 900;
+  min-height: 44px;
+  padding: 0;
+
+  &:hover {
+    background: var(--secondary-hover);
+  }
 }
 
-button[disabled] {
-  cursor: not-allowed;
-  opacity: 0.65;
+form > button:last-child {
+  margin-top: 8px;
 }
 
 .footer {
-  height: 40px;
+  height: 24px;
+}
+
+@media (max-width: 700px) {
+  .campo-lista {
+    grid-template-columns: 1fr;
+  }
 }

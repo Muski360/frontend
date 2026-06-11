@@ -1,0 +1,102 @@
+.listar-curriculos {
+  display: grid;
+  gap: 18px;
+  margin: 0 auto;
+  max-width: 1120px;
+  padding: 32px 20px 56px;
+}
+
+.card {
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 18px 38px rgba(31, 41, 55, 0.16);
+    transform: translateY(-2px);
+  }
+}
+
+.card-body {
+  display: grid;
+  gap: 10px;
+}
+
+.card-title:first-child {
+  color: var(--secondary);
+  font-size: 0.88rem;
+}
+
+.card-title:nth-child(2) {
+  font-size: 1.2rem;
+}
+
+.btn {
+  justify-self: start;
+}
+
+.card-body > button {
+  justify-self: start;
+}
+
+form {
+  background: var(--surface-soft);
+  box-shadow: none;
+  margin: 14px 0 0;
+  max-width: none;
+  width: 100%;
+
+  h3 {
+    margin-bottom: 4px;
+  }
+
+  div {
+    align-items: center;
+    display: grid;
+    gap: 8px;
+    grid-template-columns: 1fr auto auto;
+  }
+
+  div button:first-of-type {
+    background: var(--danger);
+
+    &:hover {
+      background: var(--danger-hover);
+    }
+  }
+
+  div button:last-of-type {
+    background: var(--secondary);
+
+    &:hover {
+      background: var(--secondary-hover);
+    }
+  }
+
+  > button:nth-last-child(2) {
+    background: var(--danger);
+
+    &:hover {
+      background: var(--danger-hover);
+    }
+  }
+
+  > button:last-child {
+    background: #64748b;
+
+    &:hover {
+      background: #475569;
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .btn,
+  .card-body > button {
+    justify-self: stretch;
+  }
+
+  form div {
+    grid-template-columns: 1fr;
+  }
+}

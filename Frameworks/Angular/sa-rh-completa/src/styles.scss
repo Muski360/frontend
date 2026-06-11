@@ -1,1 +1,213 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --surface-soft: #eef3f8;
+  --text: #1f2937;
+  --muted: #667085;
+  --border: #d7dee8;
+  --primary: #2454d6;
+  --primary-hover: #1d43ad;
+  --secondary: #0f766e;
+  --secondary-hover: #0b5f59;
+  --warning: #b45309;
+  --danger: #c2410c;
+  --danger-hover: #9a3412;
+  --shadow: 0 14px 34px rgba(31, 41, 55, 0.1);
+  --radius: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.5;
+  margin: 0;
+  min-height: 100vh;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+router-outlet + * {
+  flex: 1;
+}
+
+a {
+  color: inherit;
+}
+
+h2,
+h3,
+h5,
+p {
+  margin-top: 0;
+}
+
+h2 {
+  color: var(--text);
+  font-size: clamp(1.7rem, 2vw, 2.4rem);
+  line-height: 1.15;
+  margin: 0 auto 24px;
+  max-width: 1120px;
+  padding: 32px 20px 0;
+}
+
+form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0 auto 28px;
+  max-width: 720px;
+  padding: 24px;
+  width: calc(100% - 32px);
+}
+
+label {
+  color: var(--text);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+textarea {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  min-height: 44px;
+  padding: 10px 12px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  width: 100%;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(36, 84, 214, 0.14);
+  outline: none;
+}
+
+textarea {
+  min-height: 112px;
+  resize: vertical;
+}
+
+button,
+.btn {
+  align-items: center;
+  background: var(--primary);
+  border: 0;
+  border-radius: var(--radius);
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-weight: 700;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 16px;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+button:hover,
+.btn:hover {
+  background: var(--primary-hover);
+  box-shadow: 0 8px 18px rgba(36, 84, 214, 0.2);
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--border);
+  padding: 14px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: var(--surface-soft);
+  color: var(--text);
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+tr:hover td {
+  background: #fafcff;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.card-body {
+  padding: 18px;
+}
+
+.card-title {
+  color: var(--text);
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.card-text {
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+@media (max-width: 700px) {
+  h2 {
+    padding-top: 24px;
+  }
+
+  form {
+    padding: 18px;
+  }
+
+  button,
+  .btn {
+    width: 100%;
+  }
+}

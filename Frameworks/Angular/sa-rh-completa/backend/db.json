@@ -27,33 +27,18 @@
       "descricao": "Trabalhar Design de Páginas Web",
       "salario": 4000,
       "id": "pDR1GHGUJu8"
+    },
+    {
+      "id": "rLKXg46Di3Y",
+      "nome": "teste",
+      "foto": "teste",
+      "descricao": "teste",
+      "salario": "0123"
     }
   ],
   "curriculos": [
     {
-      "id": 1,
-      "usuarioId": 3,
-      "nomeCompleto": "Lorenzo Pradal Malosso",
-      "formacoes": [
-        "Técnico em Desenvolvimento de Sistemas - SENAI",
-        "Ensino Médio Completo",
-        "Curso de Angular e TypeScript"
-      ],
-      "experiencias": [
-        "Desenvolvimento de páginas web com HTML, CSS e JavaScript",
-        "Participação em projetos escolares utilizando Angular",
-        "Criação de sistemas simples com consumo de API"
-      ],
-      "habilidades": [
-        "Angular",
-        "TypeScript",
-        "HTML",
-        "CSS"
-      ],
-      "linkedin": "https://www.linkedin.com/in/lorenzo-pradal-malosso-35b6b133a/"
-    },
-    {
-      "id": 2,
+      "id": "2",
       "usuarioId": 4,
       "nomeCompleto": "Ana Beatriz Ferreira",
       "formacoes": [
@@ -74,9 +59,39 @@
         "Git"
       ],
       "linkedin": "https://www.linkedin.com/in/ana-beatriz-ferreira/"
+    },
+    {
+      "id": "SLld2Ktz_L8",
+      "usuarioId": 143,
+      "nomeCompleto": "1243",
+      "formacoes": [
+        "1234"
+      ],
+      "experiencias": [
+        "134"
+      ],
+      "habilidades": [
+        "1234"
+      ],
+      "linkedin": "1243"
+    },
+    {
+      "id": "cWe-637ewlE",
+      "usuarioId": 1,
+      "nomeCompleto": "Murilo",
+      "formacoes": [
+        "Senai",
+        "Teste"
+      ],
+      "experiencias": [
+        "Senai2",
+        "Teste2"
+      ],
+      "habilidades": [
+        "Muitas"
+      ],
+      "linkedin": "linkedin.linkedin"
     }
   ],
-
-
   "$schema": "./node_modules/json-server/schema.json"
 }

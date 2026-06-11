@@ -1,1 +1,108 @@
-<p>curriculo-list works!</p>
+<section class="listar-curriculos">
+  @for (item of curriculos; track item.id) {
+    <div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Código do Currículo: {{ item.id }}</h5>
+          <h5 class="card-title">Nome Completo: {{ item.nomeCompleto }}</h5>
+          <p class="card-text">Formações: {{ item.formacoes.join(', ') }}</p>
+          <p class="card-text">Experiências: {{ item.experiencias.join(', ') }}</p>
+          <p class="card-text">Habilidades: {{ item.habilidades.join(', ') }}</p>
+          <a href="{{ item.linkedin }}" target="_blank" class="btn btn-primary">
+            Ver Perfil no LinkedIn
+          </a>
+
+          <button type="button" (click)="selecionarCurriculo(item)">Editar Currículo</button>
+
+          @if (curriculoExpandidoId === item.id) {
+            <form action="">
+              <h3>Editar Currículo</h3>
+
+              <label for="curriculo-id">ID</label>
+              <input id="curriculo-id" type="text" [(ngModel)]="curriculo.id" name="id" />
+
+              <label for="curriculo-usuario">ID do Usuário</label>
+              <input
+                id="curriculo-usuario"
+                type="number"
+                [(ngModel)]="curriculo.usuarioId"
+                name="usuarioId"
+              />
+
+              <label for="curriculo-nome">Nome completo</label>
+              <input
+                id="curriculo-nome"
+                type="text"
+                [(ngModel)]="curriculo.nomeCompleto"
+                name="nomeCompleto"
+              />
+
+              <label>Formações</label>
+              @for (formacao of curriculo.formacoes; track $index; let i = $index) {
+                <div>
+                  <input
+                    type="text"
+                    [(ngModel)]="curriculo.formacoes[i]"
+                    [name]="'formacao-' + i"
+                  />
+
+                  <button type="button" (click)="removerFormacao(i)">Remover</button>
+
+                  @if (i === curriculo.formacoes.length - 1) {
+                    <button type="button" (click)="adicionarFormacao()">+</button>
+                  }
+                </div>
+              }
+
+              <label>Experiências</label>
+              @for (experiencia of curriculo.experiencias; track $index; let i = $index) {
+                <div>
+                  <input
+                    type="text"
+                    [(ngModel)]="curriculo.experiencias[i]"
+                    [name]="'experiencia-' + i"
+                  />
+
+                  <button type="button" (click)="removerExperiencia(i)">Remover</button>
+
+                  @if (i === curriculo.experiencias.length - 1) {
+                    <button type="button" (click)="adicionarExperiencia()">+</button>
+                  }
+                </div>
+              }
+
+              <label>Habilidades</label>
+              @for (habilidade of curriculo.habilidades; track $index; let i = $index) {
+                <div>
+                  <input
+                    type="text"
+                    [(ngModel)]="curriculo.habilidades[i]"
+                    [name]="'habilidade-' + i"
+                  />
+
+                  <button type="button" (click)="removerHabilidade(i)">Remover</button>
+
+                  @if (i === curriculo.habilidades.length - 1) {
+                    <button type="button" (click)="adicionarHabilidade()">+</button>
+                  }
+                </div>
+              }
+
+              <label for="curriculo-linkedin">LinkedIn</label>
+              <input
+                id="curriculo-linkedin"
+                type="text"
+                [(ngModel)]="curriculo.linkedin"
+                name="linkedin"
+              />
+
+              <button type="button" (click)="atualizarCurriculo()">Salvar edição</button>
+              <button type="button" (click)="removerCurriculo(curriculo.id)">Remover currículo</button>
+              <button type="button" (click)="fecharEdicao()">Cancelar</button>
+            </form>
+          }
+        </div>
+      </div>
+    </div>
+  }
+</section>

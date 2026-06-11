@@ -26,7 +26,7 @@ export class CurriculoForm {
     this.curriculo.habilidades.push('');
   }
 
-  // Apenas cadastra um novo currículo.
+  // Cadastra um novo currículo
   criarCurriculo(): void {
     this._curriculoService.postCurriculo(this.prepararCurriculo()).subscribe(() => {
       this.curriculo = this.novoCurriculo();
